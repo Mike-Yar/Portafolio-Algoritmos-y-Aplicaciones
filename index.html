@@ -3,132 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Académico | Universidad Peruana Los Andes</title>
+    <title>Portafolio Académico UPLA | Retro Neon System</title>
+    
+    <!-- Fuentes estilo Cyber Retro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
     <style>
         /* =========================================
-           1. RESETEO Y FUENTES
+           1. ESTILOS BASE Y VARIABLES RETRO NEÓN
            ========================================= */
+        :root {
+            --bg-dark: #080a10;
+            --bg-card: #0f1322;
+            --bg-card-hover: #161b30;
+            --neon-cyan: #00f0ff;
+            --neon-pink: #ff007f;
+            --neon-purple: #9d00ff;
+            --neon-green: #00ff66;
+            --neon-yellow: #ffee00;
+            --text-main: #e2e8f0;
+            --text-muted: #8a99ad;
+            --border-glow: rgba(0, 240, 255, 0.4);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Rajdhani', 'Segoe UI', sans-serif;
         }
 
         body {
-            background-color: #f4f7fb;
-            color: #333;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(157, 0, 255, 0.15) 0%, transparent 60%),
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            overflow-x: hidden;
         }
 
+        /* */
         /* =========================================
-           2. BARRA SUPERIOR (TOP BAR)
+           2. BARRA SUPERIOR RETRO NEÓN
            ========================================= */
         .top-bar {
-            background-color: #e2e8f0;
-            padding: 8px 30px;
+            background: rgba(10, 13, 24, 0.9);
+            padding: 12px 30px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            backdrop-filter: blur(8px);
+            position: relative;
+            z-index: 10;
+        }
+
+        .system-title-badge {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            text-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        .top-controls {
+            display: flex;
             align-items: center;
             gap: 20px;
-            border-bottom: 1px solid #cbd5e1;
-            font-size: 0.9rem;
         }
 
         .status-info {
-            color: #475569;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 600;
         }
 
         .badge-guest {
-            background-color: #64748b;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 12px;
+            background-color: rgba(138, 153, 173, 0.2);
+            color: var(--text-muted);
+            border: 1px solid var(--text-muted);
+            padding: 4px 12px;
+            border-radius: 4px;
             font-weight: bold;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
 
         .badge-admin {
-            background-color: #16a34a;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 12px;
+            background-color: rgba(0, 255, 102, 0.15);
+            color: var(--neon-green);
+            border: 1px solid var(--neon-green);
+            padding: 4px 12px;
+            border-radius: 4px;
             font-weight: bold;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+            letter-spacing: 1px;
         }
 
         .btn-login-corner {
-            background-color: #0b5b9c;
-            color: white;
-            border: none;
-            padding: 6px 15px;
+            background: transparent;
+            color: var(--neon-pink);
+            border: 2px solid var(--neon-pink);
+            padding: 8px 20px;
             border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
             cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 8px var(--neon-pink);
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
+            text-transform: uppercase;
         }
 
         .btn-login-corner:hover {
-            background-color: #084373;
+            background: var(--neon-pink);
+            color: #000;
+            box-shadow: 0 0 20px var(--neon-pink);
+            transform: translateY(-2px);
         }
 
         .btn-logout {
-            background-color: #dc2626;
+            color: var(--neon-yellow) !important;
+            border-color: var(--neon-yellow) !important;
+            text-shadow: 0 0 8px var(--neon-yellow) !important;
         }
 
         .btn-logout:hover {
-            background-color: #b91c1c;
+            background: var(--neon-yellow) !important;
+            color: #000 !important;
+            box-shadow: 0 0 20px var(--neon-yellow) !important;
         }
 
         /* =========================================
-           3. ENCABEZADO INSTITUCIONAL (UPLA)
+           3. ENCABEZADO INSTITUCIONAL Y NAV NEÓN
            ========================================= */
         header {
-            background-color: #0b5b9c;
-            color: white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: rgba(15, 19, 34, 0.85);
+            border-bottom: 2px solid var(--neon-purple);
+            box-shadow: 0 5px 25px rgba(157, 0, 255, 0.25);
         }
 
         .header-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 25px 20px;
             display: flex;
             align-items: center;
             gap: 25px;
         }
 
         .logo {
-            width: 80px;
+            width: 85px;
             height: auto;
-            background-color: white;
-            border-radius: 8px;
-            padding: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 6px;
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 15px var(--neon-cyan);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05) rotate(-2deg);
         }
 
         .header-text h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 5px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+            margin-bottom: 6px;
         }
 
         .header-text h2 {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: #87ceeb;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--neon-pink);
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(255, 0, 127, 0.6);
         }
 
         nav {
-            background-color: #084373;
+            background: rgba(8, 10, 16, 0.95);
+            border-top: 1px solid rgba(0, 240, 255, 0.2);
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -136,33 +213,41 @@
         .nav-btn {
             background: none;
             border: none;
-            color: #cbd5e1;
-            padding: 16px 30px;
-            font-size: 1rem;
-            font-weight: 600;
+            color: var(--text-muted);
+            padding: 18px 35px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
+            outline: none;
+            letter-spacing: 1px;
+            position: relative;
         }
 
         .nav-btn:hover {
-            color: white;
-            background-color: rgba(255,255,255,0.1);
+            color: var(--neon-cyan);
+            text-shadow: 0 0 8px var(--neon-cyan);
+            background: rgba(0, 240, 255, 0.05);
         }
 
         .nav-btn.active {
-            color: white;
-            background-color: #0b5b9c;
-            border-bottom: 4px solid #87ceeb;
+            color: #fff;
+            background: rgba(0, 240, 255, 0.12);
+            text-shadow: 0 0 12px var(--neon-cyan);
+            border-bottom: 3px solid var(--neon-cyan);
+            box-shadow: inset 0 -10px 15px -5px rgba(0, 240, 255, 0.3);
         }
 
+        /* */
         /* =========================================
-           4. CONTENIDO PRINCIPAL Y CURSOS
+           4. CONTENIDO PRINCIPAL Y TARJETAS
            ========================================= */
         main {
             flex: 1;
-            max-width: 1100px;
+            max-width: 1200px;
             width: 100%;
-            margin: 30px auto;
+            margin: 35px auto;
             padding: 0 20px;
         }
 
@@ -171,155 +256,263 @@
         }
 
         .course-section.active-section {
-            display: block;
-            animation: fadeIn 0.3s ease-in-out;
+            display: block !important;
+            animation: cyberFade 0.4s ease-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes cyberFade {
+            from { opacity: 0; transform: translateY(10px) scale(0.99); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .course-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            padding: 20px;
+            background: rgba(15, 19, 34, 0.6);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
         }
 
         .course-header h2 {
-            color: #0b5b9c;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-cyan);
             font-size: 2.2rem;
-            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px var(--neon-cyan);
+            margin-bottom: 8px;
         }
 
         .course-header p {
-            color: #64748b;
+            color: var(--text-muted);
+            font-size: 1.1rem;
         }
 
         .units-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
         }
 
         .unit-accordion {
-            background: white;
-            border-radius: 6px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .unit-accordion[open] {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
         }
 
         .unit-header {
-            background-color: #f8fafc;
-            padding: 18px 20px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #0b5b9c;
+            background: linear-gradient(90deg, rgba(0, 240, 255, 0.1), transparent);
+            padding: 20px 25px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
             cursor: pointer;
-            border-left: 6px solid #87ceeb;
-            transition: background 0.2s;
+            border-left: 6px solid var(--neon-cyan);
+            transition: all 0.2s;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+            user-select: none;
         }
 
         .unit-header:hover {
-            background-color: #f1f5f9;
+            background: linear-gradient(90deg, rgba(0, 240, 255, 0.2), transparent);
+            color: #fff;
         }
 
         .weeks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 15px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            padding: 25px;
         }
 
         .week-card {
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
+            background: rgba(10, 13, 24, 0.8);
+            border: 1px solid rgba(255, 0, 127, 0.25);
+            border-radius: 8px;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            transition: box-shadow 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .week-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+            transform: translateY(-3px);
         }
 
         .week-card h4 {
-            color: #0b5b9c;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-pink);
             font-size: 1.1rem;
-            margin-bottom: 8px;
-            border-bottom: 2px solid #87ceeb;
-            padding-bottom: 4px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--neon-pink);
+            padding-bottom: 6px;
+            text-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
             display: inline-block;
         }
 
         .topic-title {
-            font-size: 0.9rem;
-            color: #475569;
+            font-size: 0.95rem;
+            color: var(--text-main);
             margin-bottom: 20px;
             flex-grow: 1;
+            line-height: 1.4;
         }
 
+        /* */
+        /* =========================================
+           5. CONTROLES ADMIN Y MULTI-ARCHIVOS
+           ========================================= */
         .admin-controls {
             display: none;
             flex-direction: column;
-            gap: 8px;
-            margin-bottom: 12px;
-            background-color: #f8fafc;
-            padding: 10px;
-            border-radius: 4px;
-            border: 1px dashed #cbd5e1;
+            gap: 10px;
+            margin-bottom: 15px;
+            background: rgba(157, 0, 255, 0.08);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px dashed var(--neon-purple);
         }
 
         body.is-admin .admin-controls {
-            display: flex;
+            display: flex !important;
         }
 
         .admin-controls input[type="file"] {
             font-size: 0.8rem;
+            color: var(--text-muted);
             width: 100%;
         }
 
-        .btn-save {
-            background-color: #0b5b9c;
-            color: white;
-            border: none;
-            padding: 8px;
+        .admin-controls input[type="file"]::file-selector-button {
+            background: var(--bg-card);
+            color: var(--neon-cyan);
+            border: 1px solid var(--neon-cyan);
+            padding: 4px 10px;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 0.85rem;
+            margin-right: 10px;
+            transition: all 0.2s;
+        }
+
+        .admin-controls input[type="file"]::file-selector-button:hover {
+            background: var(--neon-cyan);
+            color: #000;
+        }
+
+        .btn-save {
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
             font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(157, 0, 255, 0.4);
         }
 
         .btn-save:hover {
-            background-color: #084373;
+            box-shadow: 0 0 18px var(--neon-pink);
+            transform: scale(1.02);
         }
 
-        .btn-download {
-            display: block;
+        /* Lista contenedora de múltiples descargas */
+        .files-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .no-files-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
             text-align: center;
-            background-color: #10b981;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            transition: background 0.3s;
+            background: rgba(0, 0, 0, 0.2);
         }
 
-        .btn-download:hover {
-            background-color: #059669;
+        .file-item-neon {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            background: rgba(0, 240, 255, 0.08);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
         }
 
-        .btn-download.disabled {
-            background-color: #e2e8f0;
-            color: #94a3b8;
-            pointer-events: none;
+        .file-item-neon:hover {
+            background: rgba(0, 240, 255, 0.18);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
         }
 
+        .btn-download-neon {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .btn-download-neon:hover {
+            color: #fff;
+            text-shadow: 0 0 6px var(--neon-cyan);
+        }
+
+        .btn-delete-file {
+            background: rgba(255, 0, 127, 0.2);
+            border: 1px solid var(--neon-pink);
+            color: var(--neon-pink);
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: none;
+        }
+
+        body.is-admin .btn-delete-file {
+            display: inline-block !important;
+        }
+
+        .btn-delete-file:hover {
+            background: var(--neon-pink);
+            color: #000;
+        }
+
+        /* */
         /* =========================================
-           5. MODAL DE LOGIN
+           6. VENTANA MODAL RETRO NEÓN (LOGIN)
            ========================================= */
         .modal {
             display: none;
@@ -328,112 +521,151 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(5, 7, 14, 0.85);
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 99999;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal.show {
+            display: flex !important;
         }
 
         .modal-content {
-            background-color: white;
-            width: 100%;
-            max-width: 350px;
-            border-radius: 8px;
+            background: var(--bg-card);
+            width: 90%;
+            max-width: 420px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 35px rgba(255, 0, 127, 0.5);
             position: relative;
+            animation: modalNeonGlow 0.3s ease-out;
+        }
+
+        @keyframes modalNeonGlow {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .close-btn {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            color: white;
+            top: 12px;
+            right: 18px;
+            font-size: 1.8rem;
+            color: var(--neon-pink);
             cursor: pointer;
+            line-height: 1;
+            transition: all 0.2s;
+            text-shadow: 0 0 8px var(--neon-pink);
+        }
+
+        .close-btn:hover {
+            color: #fff;
+            transform: scale(1.1);
         }
 
         .modal-header {
-            background-color: #0b5b9c;
-            color: white;
+            background: linear-gradient(135deg, rgba(255, 0, 127, 0.2), rgba(157, 0, 255, 0.2));
             padding: 25px 20px;
             text-align: center;
-            border-bottom: 4px solid #87ceeb;
+            border-bottom: 2px solid var(--neon-pink);
         }
 
         .modal-header h2 {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 10px var(--neon-pink);
+            margin-bottom: 6px;
+            letter-spacing: 1px;
         }
 
         .modal-header p {
-            font-size: 0.85rem;
-            color: #dbeaff;
+            font-size: 0.9rem;
+            color: var(--neon-cyan);
+            letter-spacing: 1px;
         }
 
         .modal-body {
-            padding: 25px 20px;
+            padding: 30px 25px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 18px;
         }
 
         .modal-body input {
-            padding: 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 4px;
+            background: rgba(8, 10, 16, 0.9);
+            border: 1px solid var(--neon-cyan);
+            color: #fff;
+            padding: 14px;
+            border-radius: 6px;
             font-size: 1rem;
             outline: none;
+            transition: all 0.3s;
+            box-shadow: inset 0 0 8px rgba(0, 240, 255, 0.1);
         }
 
         .modal-body input:focus {
-            border-color: #0b5b9c;
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 12px rgba(255, 0, 127, 0.5), inset 0 0 8px rgba(255, 0, 127, 0.2);
         }
 
         .btn-submit {
-            background-color: #0b5b9c;
-            color: white;
+            background: var(--neon-pink);
+            color: #000;
             border: none;
-            padding: 12px;
+            padding: 14px;
+            font-family: 'Orbitron', sans-serif;
             font-size: 1rem;
             font-weight: bold;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px var(--neon-pink);
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .btn-submit:hover {
-            background-color: #084373;
+            background: #fff;
+            box-shadow: 0 0 25px #fff;
+            transform: translateY(-2px);
         }
 
         .error-msg {
-            color: #ef4444;
+            color: var(--neon-pink);
             font-size: 0.85rem;
             text-align: center;
-            min-height: 15px;
+            min-height: 18px;
+            text-shadow: 0 0 5px var(--neon-pink);
         }
 
         /* =========================================
-           6. NOTIFICACIONES TOAST
+           7. NOTIFICACIONES FLOTANTES (TOAST)
            ========================================= */
         .toast {
             visibility: hidden;
-            min-width: 280px;
-            background-color: #333;
+            min-width: 300px;
+            background-color: var(--bg-card);
             color: #fff;
             text-align: center;
             border-radius: 6px;
-            padding: 14px 20px;
+            padding: 14px 22px;
             position: fixed;
-            z-index: 2000;
+            z-index: 100000;
             left: 50%;
-            bottom: 30px;
+            bottom: 35px;
             transform: translateX(-50%);
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 0.95rem;
+            font-weight: 700;
             opacity: 0;
             transition: opacity 0.3s, visibility 0.3s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 20px var(--neon-cyan);
+            letter-spacing: 1px;
         }
 
         .toast.show {
@@ -441,59 +673,308 @@
             opacity: 1;
         }
 
-        .toast.success { background-color: #10b981; }
-        .toast.error { background-color: #ef4444; }
+        .toast.success { 
+            border-color: var(--neon-green); 
+            box-shadow: 0 0 20px var(--neon-green);
+            color: var(--neon-green);
+        }
+        .toast.error { 
+            border-color: var(--neon-pink); 
+            box-shadow: 0 0 20px var(--neon-pink);
+            color: var(--neon-pink);
+        }
+
+        /* =========================================
+           8. CHATBOT IA RETRO NEÓN (EXTENSIÓN GEMINI)
+           ========================================= */
+        .chatbot-toggle-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--bg-card);
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 12px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            z-index: 99990;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .chatbot-toggle-btn:hover {
+            background: var(--neon-cyan);
+            color: #000;
+            box-shadow: 0 0 25px var(--neon-cyan);
+            transform: scale(1.05);
+        }
+
+        .chatbot-window {
+            display: none;
+            position: fixed;
+            bottom: 85px;
+            right: 25px;
+            width: 390px;
+            max-width: calc(100vw - 40px);
+            height: 530px;
+            max-height: calc(100vh - 120px);
+            background: var(--bg-card);
+            border: 2px solid var(--neon-pink);
+            border-radius: 12px;
+            box-shadow: 0 0 35px rgba(255, 0, 127, 0.45);
+            z-index: 99995;
+            flex-direction: column;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            animation: chatNeonOpen 0.3s ease-out;
+        }
+
+        @keyframes chatNeonOpen {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .chatbot-window.open {
+            display: flex !important;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(90deg, rgba(255, 0, 127, 0.25), rgba(157, 0, 255, 0.25));
+            border-bottom: 2px solid var(--neon-pink);
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bot-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: #fff;
+            text-shadow: 0 0 8px var(--neon-pink);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 1px;
+        }
+
+        .bot-status-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--neon-green);
+        }
+
+        .chatbot-close-btn {
+            color: var(--neon-pink);
+            font-size: 1.6rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: all 0.2s;
+            text-shadow: 0 0 8px var(--neon-pink);
+        }
+
+        .chatbot-close-btn:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(8, 10, 16, 0.7);
+        }
+
+        .chatbot-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        .chatbot-messages::-webkit-scrollbar-thumb {
+            background: var(--neon-cyan);
+            border-radius: 3px;
+        }
+
+        .chat-msg {
+            max-width: 88%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.45;
+            word-wrap: break-word;
+        }
+
+        .chat-msg.bot-msg {
+            align-self: flex-start;
+            background: rgba(255, 0, 127, 0.12);
+            border: 1px solid var(--neon-pink);
+            color: #fff;
+            border-top-left-radius: 2px;
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
+        }
+
+        .chat-msg.user-msg {
+            align-self: flex-end;
+            background: rgba(0, 240, 255, 0.15);
+            border: 1px solid var(--neon-cyan);
+            color: #fff;
+            border-top-right-radius: 2px;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+        }
+
+        .chatbot-chips {
+            display: flex;
+            gap: 6px;
+            padding: 8px 12px;
+            overflow-x: auto;
+            background: rgba(15, 19, 34, 0.95);
+            border-top: 1px solid rgba(0, 240, 255, 0.2);
+        }
+
+        .chatbot-chips::-webkit-scrollbar {
+            display: none;
+        }
+
+        .chatbot-chips button {
+            white-space: nowrap;
+            background: rgba(0, 240, 255, 0.08);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+
+        .chatbot-chips button:hover {
+            background: var(--neon-cyan);
+            color: #000;
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .chatbot-input-area {
+            display: flex;
+            padding: 12px;
+            background: var(--bg-card);
+            border-top: 1px solid var(--neon-pink);
+            gap: 8px;
+        }
+
+        .chatbot-input-area input {
+            flex: 1;
+            background: rgba(8, 10, 16, 0.9);
+            border: 1px solid var(--neon-cyan);
+            color: #fff;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .chatbot-input-area input:focus {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
+        }
+
+        .chatbot-input-area button {
+            background: var(--neon-pink);
+            color: #000;
+            border: none;
+            padding: 0 16px;
+            border-radius: 6px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 0 12px var(--neon-pink);
+        }
+
+        .chatbot-input-area button:hover {
+            background: #fff;
+            box-shadow: 0 0 20px #fff;
+            transform: scale(1.02);
+        }
+
+        .typing-indicator {
+            font-style: italic;
+            color: var(--neon-cyan);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
         footer {
-            background-color: #0f172a;
-            color: #94a3b8;
+            background-color: rgba(5, 7, 14, 0.95);
+            border-top: 1px solid rgba(0, 240, 255, 0.2);
+            color: var(--text-muted);
             text-align: center;
-            padding: 20px 0;
+            padding: 22px 0;
             margin-top: auto;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-    <!-- BARRA SUPERIOR -->
+    <!-- BARRA SUPERIOR NEÓN -->
     <div class="top-bar">
-        <div class="status-info">
-            Vista actual: <span id="current-role" class="badge-guest">Visitante (Solo Lectura)</span>
+        <div class="system-title-badge">⚡ UPLA CYBER-PORTFOLIO 2026</div>
+        <div class="top-controls">
+            <div class="status-info">
+                SISTEMA: <span id="current-role" class="badge-guest">VISITANTE (LECTURA)</span>
+            </div>
+            <button id="auth-btn" class="btn-login-corner" type="button" onclick="openLoginModal()">Acceso Admin</button>
         </div>
-        <button id="auth-btn" class="btn-login-corner" onclick="openLoginModal()">Acceso Admin</button>
     </div>
 
-    <!-- VENTANA FLOTANTE DE LOGIN -->
+    <!-- VENTANA MODAL LOGIN RETRO NEÓN -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeLoginModal()">&times;</span>
             <div class="modal-header">
-                <h2>Acceso Administrador</h2>
-                <p>Gestión y carga de entregables</p>
+                <h2>ADMIN LOGIN</h2>
+                <p>Gestión de Archivos y Entregables</p>
             </div>
             <div class="modal-body">
-                <input type="text" id="adminUser" placeholder="Usuario (ej. miguel)">
-                <input type="password" id="adminPass" placeholder="Contraseña">
+                <input type="text" id="adminUser" placeholder="Usuario (ej. miguel)" autocomplete="username">
+                <input type="password" id="adminPass" placeholder="Contraseña" autocomplete="current-password">
                 <p id="login-error" class="error-msg"></p>
-                <button class="btn-submit" onclick="login()">Iniciar Sesión</button>
+                <button type="button" class="btn-submit" onclick="login()">INGRESAR AL SISTEMA</button>
             </div>
         </div>
     </div>
 
-    <!-- ENCABEZADO PRINCIPAL -->
+    <!-- ENCABEZADO INSTITUCIONAL RETRO -->
     <header>
         <div class="header-container">
-            <img src="image_401b6a.png" alt="Logo UPLA" class="logo" onerror="this.src='https://via.placeholder.com/80?text=UPLA';">
+            <img src="image_401b6a.png" alt="Logo UPLA" class="logo" onerror="this.src='https://via.placeholder.com/85/0f1322/00f0ff?text=UPLA';">
             <div class="header-text">
                 <h1>Universidad Peruana Los Andes</h1>
-                <h2>Portafolio de Estudiante: Miguel Portocarrero</h2>
+                <h2>PORTAFOLIO ACADÉMICO: MIGUEL PORTOCARRERO</h2>
             </div>
         </div>
 
         <nav>
             <ul>
-                <li><button class="nav-btn active" onclick="switchCourse('algoritmos', this)">Algoritmos</button></li>
-                <li><button class="nav-btn" onclick="switchCourse('desarrollo', this)">Desarrollo de Aplicaciones</button></li>
+                <li><button type="button" id="btn-nav-algoritmos" class="nav-btn active" data-course="algoritmos" onclick="switchCourse('algoritmos', this)">Algoritmos</button></li>
+                <li><button type="button" id="btn-nav-desarrollo" class="nav-btn" data-course="desarrollo" onclick="switchCourse('desarrollo', this)">Desarrollo de Aplicaciones</button></li>
             </ul>
         </nav>
     </header>
@@ -505,7 +986,7 @@
         <section id="algoritmos" class="course-section active-section">
             <div class="course-header">
                 <h2>Curso: Algoritmos</h2>
-                <p>Sílabo y entregables semanales organizados por unidad académica.</p>
+                <p>Sílabo y múltiple entrega de archivos organizada por semanas académicas.</p>
             </div>
 
             <div class="units-container">
@@ -517,37 +998,45 @@
                             <h4>Semana 1</h4>
                             <p class="topic-title">Introducción a la Algoritmia, variables y tipos de datos</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w1">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w1', 'dl-algo-w1')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w1" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w1', 'container-algo-w1', 'algo-w1')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w1" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w1" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 2</h4>
                             <p class="topic-title">Operadores aritméticos, relacionales y lógicos</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w2">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w2', 'dl-algo-w2')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w2" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w2', 'container-algo-w2', 'algo-w2')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w2" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w2" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 3</h4>
                             <p class="topic-title">Estructuras selectivas simples y dobles (If-Else)</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w3">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w3', 'dl-algo-w3')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w3" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w3', 'container-algo-w3', 'algo-w3')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w3" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w3" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 4</h4>
                             <p class="topic-title">Estructuras selectivas múltiples (Switch / Según)</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w4">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w4', 'dl-algo-w4')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w4" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w4', 'container-algo-w4', 'algo-w4')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w4" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w4" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                     </div>
                 </details>
@@ -560,37 +1049,45 @@
                             <h4>Semana 5</h4>
                             <p class="topic-title">Estructuras repetitivas: Bucle Mientras (While)</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w5">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w5', 'dl-algo-w5')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w5" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w5', 'container-algo-w5', 'algo-w5')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w5" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w5" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 6</h4>
                             <p class="topic-title">Estructuras repetitivas: Para (For) y Hacer-Mientras</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w6">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w6', 'dl-algo-w6')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w6" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w6', 'container-algo-w6', 'algo-w6')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w6" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w6" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 7</h4>
                             <p class="topic-title">Introducción a Arreglos Unidimensionales (Vectores)</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w7">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w7', 'dl-algo-w7')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w7" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w7', 'container-algo-w7', 'algo-w7')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w7" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w7" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 8</h4>
                             <p class="topic-title">Operaciones con Vectores (Inserción, Modificación)</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w8">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w8', 'dl-algo-w8')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w8" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w8', 'container-algo-w8', 'algo-w8')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w8" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w8" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                     </div>
                 </details>
@@ -603,37 +1100,45 @@
                             <h4>Semana 9</h4>
                             <p class="topic-title">Arreglos Bidimensionales (Matrices)</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w9">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w9', 'dl-algo-w9')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w9" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w9', 'container-algo-w9', 'algo-w9')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w9" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w9" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 10</h4>
                             <p class="topic-title">Operaciones y recorridos en Matrices</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w10">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w10', 'dl-algo-w10')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w10" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w10', 'container-algo-w10', 'algo-w10')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w10" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w10" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 11</h4>
                             <p class="topic-title">Modularización: Subprogramas y Funciones</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w11">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w11', 'dl-algo-w11')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w11" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w11', 'container-algo-w11', 'algo-w11')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w11" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w11" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 12</h4>
                             <p class="topic-title">Paso de parámetros por valor y por referencia</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w12">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w12', 'dl-algo-w12')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w12" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w12', 'container-algo-w12', 'algo-w12')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w12" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w12" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                     </div>
                 </details>
@@ -646,37 +1151,45 @@
                             <h4>Semana 13</h4>
                             <p class="topic-title">Métodos de ordenamiento (Burbuja, Inserción)</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w13">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w13', 'dl-algo-w13')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w13" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w13', 'container-algo-w13', 'algo-w13')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w13" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w13" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 14</h4>
                             <p class="topic-title">Algoritmos de búsqueda (Lineal y Binaria)</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w14">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w14', 'dl-algo-w14')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w14" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w14', 'container-algo-w14', 'algo-w14')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w14" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w14" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 15</h4>
                             <p class="topic-title">Integración de algoritmos y casos prácticos</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w15">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w15', 'dl-algo-w15')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w15" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w15', 'container-algo-w15', 'algo-w15')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w15" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w15" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 16</h4>
                             <p class="topic-title">Evaluación Final del Curso / Consolidado 2</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-algo-w16">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w16', 'dl-algo-w16')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-algo-w16" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-algo-w16', 'container-algo-w16', 'algo-w16')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-algo-w16" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-algo-w16" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                     </div>
                 </details>
@@ -687,7 +1200,7 @@
         <section id="desarrollo" class="course-section">
             <div class="course-header">
                 <h2>Curso: Desarrollo de Aplicaciones</h2>
-                <p>Sílabo y entregables semanales organizados por unidad académica.</p>
+                <p>Sílabo y múltiple entrega de archivos organizada por semanas académicas.</p>
             </div>
 
             <div class="units-container">
@@ -699,37 +1212,45 @@
                             <h4>Semana 1</h4>
                             <p class="topic-title">Introducción a la Web y estructuración con HTML5</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w1">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w1', 'dl-dev-w1')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w1" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w1', 'container-dev-w1', 'dev-w1')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w1" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w1" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 2</h4>
                             <p class="topic-title">Estilos en cascada (CSS3) y selectores básicos</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w2">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w2', 'dl-dev-w2')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w2" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w2', 'container-dev-w2', 'dev-w2')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w2" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w2" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 3</h4>
                             <p class="topic-title">Diseño responsivo: Flexbox y maquetación de vistas</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w3">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w3', 'dl-dev-w3')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w3" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w3', 'container-dev-w3', 'dev-w3')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w3" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w3" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 4</h4>
                             <p class="topic-title">Evaluación Práctica: Maquetación de interfaz web</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w4">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w4', 'dl-dev-w4')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w4" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w4', 'container-dev-w4', 'dev-w4')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w4" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w4" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                     </div>
                 </details>
@@ -742,37 +1263,45 @@
                             <h4>Semana 5</h4>
                             <p class="topic-title">Introducción a JavaScript: Variables, tipos y operadores</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w5">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w5', 'dl-dev-w5')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w5" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w5', 'container-dev-w5', 'dev-w5')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w5" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w5" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 6</h4>
                             <p class="topic-title">Estructuras de control y manipulación del DOM</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w6">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w6', 'dl-dev-w6')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w6" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w6', 'container-dev-w6', 'dev-w6')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w6" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w6" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 7</h4>
                             <p class="topic-title">Eventos de usuario y validación de formularios</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w7">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w7', 'dl-dev-w7')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w7" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w7', 'container-dev-w7', 'dev-w7')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w7" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w7" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 8</h4>
                             <p class="topic-title">Examen Parcial / Consolidado 1</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w8">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w8', 'dl-dev-w8')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w8" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w8', 'container-dev-w8', 'dev-w8')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w8" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w8" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                     </div>
                 </details>
@@ -785,37 +1314,45 @@
                             <h4>Semana 9</h4>
                             <p class="topic-title">Programación Orientada a Objetos (Clases, constructores)</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w9">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w9', 'dl-dev-w9')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w9" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w9', 'container-dev-w9', 'dev-w9')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w9" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w9" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 10</h4>
                             <p class="topic-title">Asincronismo en la web (Promises, Async/Await)</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w10">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w10', 'dl-dev-w10')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w10" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w10', 'container-dev-w10', 'dev-w10')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w10" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w10" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 11</h4>
                             <p class="topic-title">Consumo de APIs externas (Fetch) y formato JSON</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w11">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w11', 'dl-dev-w11')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w11" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w11', 'container-dev-w11', 'dev-w11')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w11" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w11" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 12</h4>
                             <p class="topic-title">Evaluación / Práctica Calificada 2</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w12">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w12', 'dl-dev-w12')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w12" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w12', 'container-dev-w12', 'dev-w12')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w12" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w12" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                     </div>
                 </details>
@@ -828,37 +1365,45 @@
                             <h4>Semana 13</h4>
                             <p class="topic-title">Almacenamiento local (LocalStorage y SessionStorage)</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w13">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w13', 'dl-dev-w13')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w13" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w13', 'container-dev-w13', 'dev-w13')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w13" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w13" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 14</h4>
                             <p class="topic-title">Control de versiones con Git y alojamiento (GitHub Pages)</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w14">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w14', 'dl-dev-w14')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w14" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w14', 'container-dev-w14', 'dev-w14')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w14" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w14" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 15</h4>
                             <p class="topic-title">Integración y ajustes finales del proyecto</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w15">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w15', 'dl-dev-w15')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w15" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w15', 'container-dev-w15', 'dev-w15')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w15" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w15" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                         <div class="week-card">
                             <h4>Semana 16</h4>
                             <p class="topic-title">Presentación de Proyecto Final / Consolidado 2</p>
                             <div class="admin-controls">
-                                <input type="file" id="file-dev-w16">
-                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w16', 'dl-dev-w16')">💾 Subir y Guardar</button>
+                                <input type="file" id="file-dev-w16" multiple>
+                                <button class="btn-save" onclick="saveAndPrepareDownload('file-dev-w16', 'container-dev-w16', 'dev-w16')">💾 Subir Archivos</button>
                             </div>
-                            <a id="dl-dev-w16" class="btn-download disabled" download>📥 Descargar Archivo</a>
+                            <div id="container-dev-w16" class="files-container">
+                                <span class="no-files-label">Sin archivos entregados</span>
+                            </div>
                         </div>
                     </div>
                 </details>
@@ -870,188 +1415,129 @@
     <!-- NOTIFICACIÓN TOAST -->
     <div id="toast" class="toast"></div>
 
+    <!-- CHATBOT IA RETRO NEÓN -->
+    <button id="chatbot-toggle-btn" class="chatbot-toggle-btn" type="button" onclick="toggleChatbot()">
+        <span>⚡</span>
+        <span>CYBER-BOT IA</span>
+    </button>
+
+    <div id="chatbot-window" class="chatbot-window">
+        <div class="chatbot-header">
+            <div class="bot-title">
+                <span class="bot-status-dot"></span>
+                <span>CYBER-BOT UPLA // AI ASSISTANT</span>
+            </div>
+            <span class="chatbot-close-btn" onclick="toggleChatbot()">&times;</span>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages">
+            <div class="chat-msg bot-msg">
+                👋 ¡Hola! Soy **CYBER-BOT**, tu asistente inteligente para el Portafolio de **Miguel Portocarrero** (UPLA).<br><br>Pregúntame sobre los temas del sílabo o los archivos entregados en cada semana.
+            </div>
+        </div>
+        <div class="chatbot-chips">
+            <button type="button" onclick="sendQuickQuestion('¿Qué temas se ven en la Unidad 1 de Algoritmos?')">📘 Unidad 1 Algoritmos</button>
+            <button type="button" onclick="sendQuickQuestion('¿Cuáles son los temas de Desarrollo de Aplicaciones?')">💻 Dev. Aplicaciones</button>
+            <button type="button" onclick="sendQuickQuestion('¿Quién es el estudiante y de qué universidad es?')">👤 Datos Estudiante</button>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbot-input" placeholder="Pregunta sobre el portafolio..." onkeypress="handleChatKeyPress(event)">
+            <button type="button" id="chatbot-send-btn" onclick="sendChatMessage()">ENVIAR</button>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2026 Miguel Portocarrero | Universidad Peruana Los Andes</p>
+        <p>&copy; 2026 MIGUEL PORTOCARRERO | UNIVERSIDAD PERUANA LOS ANDES</p>
     </footer>
 
-   <!-- 1. IMPORTAR SUPABASE DESDE CDN -->
+    <!-- LIBRERÍA SUPABASE SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script>
         // ==========================================
-        // CONFIGURACIÓN DE SUPABASE
+        // CONFIGURACIÓN Y CREDENCIALES DE SUPABASE
         // ==========================================
-        const supabaseUrl = 'https://onsudjhqwdwpysnpduxu.supabase.co/rest/v1/'; // Reemplaza con tu URL
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9uc3Vkamhxd2R3cHlzbnBkdXh1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk5NzQwMjcsImV4cCI6MjEwNTU1MDAyN30.9yckEt4cEkLRXBIgmHTRIXKfns0bFigMh1BUrs1LRdw'; // Reemplaza con tu Key anon
+        const rawSupabaseUrl = 'https://onsudjhqwdwpysnpduxu.supabase.co/rest/v1/';
+        const supabaseUrl = rawSupabaseUrl.replace(/\/rest\/v1\/?$/, '');
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9uc3Vkamhxd2R3cHlzbnBkdXh1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk5NzQwMjcsImV4cCI6MjEwNTU1MDAyN30.9yckEt4cEkLRXBIgmHTRIXKfns0bFigMh1BUrs1LRdw';
 
-        let supabase = null;
+        let supabaseClient = null;
 
-        // Inicialización segura para evitar congelar la página
-        try {
-            if (window.supabase && supabaseUrl !== 'https://onsudjhqwdwpysnpduxu.supabase.co/rest/v1/' && supabaseUrl.startsWith('http')) {
-                supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-                console.log("Supabase conectado correctamente.");
-            } else {
-                console.warn("Supabase no configurado o URL inválida. Reemplaza TU_URL_AQUI por tus credenciales.");
-            }
-        } catch (err) {
-            console.error("Error al inicializar Supabase:", err);
-        }
-
-        // ==========================================
-        // CARGAR ARCHIVOS AL INICIAR
-        // ==========================================
-        document.addEventListener("DOMContentLoaded", async function() {
-            if (!supabase) return;
-
+        function initSupabase() {
             try {
-                const { data, error } = await supabase.from('archivos').select('*');
-                if (error) throw error;
-
-                if (data) {
-                    data.forEach(item => {
-                        const btn = document.getElementById(item.semana_id);
-                        if (btn) {
-                            btn.href = item.url;
-                            btn.target = "_blank"; 
-                            btn.classList.remove('disabled');
-                            btn.textContent = '📥 Descargar: ' + item.nombre;
-                        }
-                    });
+                if (window.supabase && typeof window.supabase.createClient === 'function') {
+                    supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+                    console.log("⚡ Supabase Neon inicializado correctamente.");
                 }
             } catch (err) {
-                console.error("Error cargando archivos de la BD:", err);
+                console.error("Error al inicializar Supabase:", err);
             }
-        });
-
-        // ==========================================
-        // SUBIDA DE ARCHIVOS (ADMIN)
-        // ==========================================
-        async function saveAndPrepareDownload(inputId, downloadBtnId) {
-            if (!supabase) {
-                showToast('Configura las llaves de Supabase en el código antes de subir archivos.', 'error');
-                return;
-            }
-
-            const fileInput = document.getElementById(inputId);
-            const downloadBtn = document.getElementById(downloadBtnId);
-
-            if (!fileInput.files || fileInput.files.length === 0) {
-                showToast('Por favor, selecciona un archivo primero.', 'error');
-                return;
-            }
-
-            const file = fileInput.files[0];
-            const semanaId = downloadBtnId;
-            const fileExt = file.name.split('.').pop();
-            const uniqueFileName = `${semanaId}-${Date.now()}.${fileExt}`;
-
-            showToast('Subiendo archivo...', 'success');
-
-            const { data: uploadData, error: uploadError } = await supabase.storage
-                .from('entregables')
-                .upload(uniqueFileName, file, { cacheControl: '3600', upsert: false });
-
-            if (uploadError) {
-                showToast('Error en Storage: ' + uploadError.message, 'error');
-                return;
-            }
-
-            const { data: urlData } = supabase.storage
-                .from('entregables')
-                .getPublicUrl(uniqueFileName);
-
-            const fileUrl = urlData.publicUrl;
-
-            const { error: dbError } = await supabase.from('archivos').upsert({
-                semana_id: semanaId,
-                nombre: file.name,
-                url: fileUrl
-            });
-
-            if (dbError) {
-                showToast('Error en BD: ' + dbError.message, 'error');
-                return;
-            }
-
-            downloadBtn.href = fileUrl;
-            downloadBtn.target = "_blank";
-            downloadBtn.classList.remove('disabled');
-            downloadBtn.textContent = '📥 Descargar: ' + file.name;
-
-            showToast('¡Archivo guardado exitosamente!', 'success');
         }
 
         // ==========================================
-        // NAVEGACIÓN Y PESTAÑAS (CURSOS)
+        // CAMBIO DE CURSOS Y PESTAÑAS
         // ==========================================
         function switchCourse(courseId, btn) {
-            // Ocultar todas las secciones de cursos
             document.querySelectorAll('.course-section').forEach(sec => {
                 sec.classList.remove('active-section');
             });
-
-            // Desactivar el estado activo de todos los botones
+            
             document.querySelectorAll('.nav-btn').forEach(b => {
                 b.classList.remove('active');
             });
-
-            // Mostrar el curso seleccionado
+            
             const targetSection = document.getElementById(courseId);
             if (targetSection) {
                 targetSection.classList.add('active-section');
             }
 
-            // Activar el botón presionado
             if (btn) {
                 btn.classList.add('active');
+            } else {
+                const targetBtn = document.querySelector(`.nav-btn[data-course="${courseId}"]`);
+                if (targetBtn) targetBtn.classList.add('active');
             }
         }
 
         // ==========================================
-        // MODAL DE ACCESO ADMIN
+        // MODAL Y ACCESO ADMINISTRADOR NEÓN
         // ==========================================
         function openLoginModal() {
             const modal = document.getElementById("loginModal");
-            if (modal) modal.style.display = "flex";
+            if (modal) modal.classList.add("show");
         }
 
         function closeLoginModal() {
             const modal = document.getElementById("loginModal");
-            if (modal) modal.style.display = "none";
+            if (modal) modal.classList.remove("show");
             const error = document.getElementById('login-error');
             if (error) error.textContent = "";
         }
 
-        window.onclick = function(event) {
-            const modal = document.getElementById("loginModal");
-            if (event.target === modal) {
-                closeLoginModal();
-            }
-        };
-
         function login() {
-            const user = document.getElementById('adminUser').value.trim().toLowerCase();
-            const pass = document.getElementById('adminPass').value;
+            const userEl = document.getElementById('adminUser');
+            const passEl = document.getElementById('adminPass');
             const error = document.getElementById('login-error');
+
+            const user = userEl ? userEl.value.trim().toLowerCase() : '';
+            const pass = passEl ? passEl.value : '';
 
             if (user === 'miguel' && pass === '123456') {
                 document.body.classList.add('is-admin');
                 const roleSpan = document.getElementById('current-role');
                 if (roleSpan) {
-                    roleSpan.textContent = 'Administrador (Miguel)';
+                    roleSpan.textContent = 'ADMINISTRADOR (MIGUEL)';
                     roleSpan.className = 'badge-admin';
                 }
                 const authBtn = document.getElementById('auth-btn');
                 if (authBtn) {
-                    authBtn.textContent = 'Cerrar Sesión';
+                    authBtn.textContent = 'CERRAR SESIÓN';
                     authBtn.classList.add('btn-logout');
                     authBtn.onclick = logout;
                 }
                 closeLoginModal();
                 showToast('Modo administrador activado', 'success');
             } else {
-                if (error) error.textContent = 'Usuario o contraseña incorrectos.';
+                if (error) error.textContent = 'ACCESO DENEGADO: Credenciales incorrectas';
             }
         }
 
@@ -1059,7 +1545,7 @@
             document.body.classList.remove('is-admin');
             const roleSpan = document.getElementById('current-role');
             if (roleSpan) {
-                roleSpan.textContent = 'Visitante (Solo Lectura)';
+                roleSpan.textContent = 'VISITANTE (LECTURA)';
                 roleSpan.className = 'badge-guest';
             }
             const authBtn = document.getElementById('auth-btn');
@@ -1068,9 +1554,11 @@
                 authBtn.classList.remove('btn-logout');
                 authBtn.onclick = openLoginModal;
             }
-            document.getElementById('adminUser').value = "";
-            document.getElementById('adminPass').value = "";
-            showToast('Sesión de administrador cerrada');
+            const u = document.getElementById('adminUser');
+            const p = document.getElementById('adminPass');
+            if (u) u.value = "";
+            if (p) p.value = "";
+            showToast('Sesión de administración cerrada');
         }
 
         function showToast(message, type = '') {
@@ -1082,6 +1570,373 @@
                 toast.className = 'toast';
             }, 4000);
         }
+
+        // ==========================================
+        // SUBIR MÚLTIPLES ARCHIVOS A LA NUBE
+        // ==========================================
+        async function saveAndPrepareDownload(inputId, containerId, semanaId) {
+            if (!supabaseClient) initSupabase();
+
+            if (!supabaseClient) {
+                showToast('Sin conexión con la base de datos Supabase.', 'error');
+                return;
+            }
+
+            const fileInput = document.getElementById(inputId);
+            if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+                showToast('Por favor, selecciona uno o más archivos.', 'error');
+                return;
+            }
+
+            const files = Array.from(fileInput.files);
+            showToast(`Subiendo ${files.length} archivo(s)...`, 'success');
+
+            let successCount = 0;
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const fileExt = file.name.split('.').pop();
+                const cleanName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_');
+                const uniqueFileName = `${semanaId}-${Date.now()}-${i}-${cleanName}`;
+
+                try {
+                    // 1. Subir a Storage Bucket 'entregables'
+                    const { data: uploadData, error: uploadError } = await supabaseClient.storage
+                        .from('entregables')
+                        .upload(uniqueFileName, file, { cacheControl: '3600', upsert: true });
+
+                    if (uploadError) {
+                        console.error('Error Storage:', uploadError);
+                        showToast(`Error en ${file.name}: ${uploadError.message}`, 'error');
+                        continue;
+                    }
+
+                    // 2. Obtener URL pública
+                    const { data: urlData } = supabaseClient.storage
+                        .from('entregables')
+                        .getPublicUrl(uniqueFileName);
+
+                    const fileUrl = urlData.publicUrl;
+
+                    // 3. Registrar en base de datos con objeto e ID único
+                    const recordPayload = {
+                        semana_id: semanaId,
+                        nombre: file.name,
+                        url: fileUrl
+                    };
+
+                    if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+                        recordPayload.id = crypto.randomUUID();
+                    }
+
+                    const { error: dbError } = await supabaseClient.from('archivos').insert([recordPayload]);
+
+                    if (dbError) {
+                        console.error('Error DB:', dbError);
+                        showToast(`Error guardando datos de ${file.name}: ${dbError.message}`, 'error');
+                        continue;
+                    }
+
+                    successCount++;
+                } catch (err) {
+                    console.error("Excepción en guardado:", err);
+                }
+            }
+
+            if (successCount > 0) {
+                fileInput.value = ''; // Limpiar selector
+                showToast(`¡${successCount} archivo(s) guardado(s) exitosamente!`, 'success');
+                await loadFilesFromSupabase(); // Recargar lista
+            }
+        }
+
+        // ==========================================
+        // RECUPERAR Y RENDERIZAR ARCHIVOS MULTIPLES
+        // ==========================================
+        async function loadFilesFromSupabase() {
+            if (!supabaseClient) initSupabase();
+            if (!supabaseClient) return;
+
+            try {
+                const { data, error } = await supabaseClient.from('archivos').select('*');
+                if (error) throw error;
+
+                // Agrupar archivos por semana_id
+                const filesBySemana = {};
+
+                if (data) {
+                    data.forEach(item => {
+                        if (!filesBySemana[item.semana_id]) {
+                            filesBySemana[item.semana_id] = [];
+                        }
+                        filesBySemana[item.semana_id].push(item);
+                    });
+                }
+
+                // Actualizar contenedores de todas las semanas
+                document.querySelectorAll('.files-container').forEach(container => {
+                    const containerId = container.id; // ej: container-algo-w1
+                    const semanaId = containerId.replace('container-', ''); // ej: algo-w1
+                    const items = filesBySemana[semanaId] || [];
+
+                    if (items.length === 0) {
+                        container.innerHTML = '<span class="no-files-label">Sin archivos entregados</span>';
+                    } else {
+                        container.innerHTML = items.map(file => `
+                            <div class="file-item-neon">
+                                <a href="${file.url}" target="_blank" class="btn-download-neon" title="${file.nombre}">
+                                    📥 ${escapeHtml(file.nombre)}
+                                </a>
+                                <button class="btn-delete-file" onclick="deleteFile('${file.id || ''}', '${file.url}', '${semanaId}')" title="Eliminar archivo">✖</button>
+                            </div>
+                        `).join('');
+                    }
+                });
+
+            } catch (err) {
+                console.error("Error recuperando archivos de Supabase:", err);
+            }
+        }
+
+        async function deleteFile(id, url, semanaId) {
+            if (!supabaseClient) initSupabase();
+            if (!supabaseClient) return;
+
+            try {
+                showToast('Eliminando archivo...', 'success');
+                
+                // Borrar de DB por id o url
+                if (id) {
+                    await supabaseClient.from('archivos').delete().eq('id', id);
+                } else {
+                    await supabaseClient.from('archivos').delete().eq('url', url);
+                }
+
+                showToast('Archivo eliminado', 'success');
+                await loadFilesFromSupabase();
+            } catch (err) {
+                console.error("Error al borrar:", err);
+                showToast('Error al eliminar el archivo', 'error');
+            }
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Registrar funciones en el ámbito global
+        window.switchCourse = switchCourse;
+        window.openLoginModal = openLoginModal;
+        window.closeLoginModal = closeLoginModal;
+        window.login = login;
+        window.logout = logout;
+        window.saveAndPrepareDownload = saveAndPrepareDownload;
+        window.deleteFile = deleteFile;
+        window.toggleChatbot = toggleChatbot;
+        window.sendChatMessage = sendChatMessage;
+        window.sendQuickQuestion = sendQuickQuestion;
+        window.handleChatKeyPress = handleChatKeyPress;
+
+        // ==========================================
+        // EXTENSIÓN CHATBOT IA (GEMINI API)
+        // ==========================================
+        function toggleChatbot() {
+            const win = document.getElementById('chatbot-window');
+            if (win) {
+                win.classList.toggle('open');
+                if (win.classList.contains('open')) {
+                    const input = document.getElementById('chatbot-input');
+                    if (input) input.focus();
+                }
+            }
+        }
+
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        function sendQuickQuestion(questionText) {
+            const input = document.getElementById('chatbot-input');
+            if (input) {
+                input.value = questionText;
+                sendChatMessage();
+            }
+        }
+
+        function extractPortfolioContext() {
+            let summary = [];
+            const courses = document.querySelectorAll('.course-section');
+            courses.forEach(course => {
+                const cHeader = course.querySelector('.course-header h2')?.textContent.trim() || course.id;
+                summary.push(`=== CURSO: ${cHeader} ===`);
+
+                const units = course.querySelectorAll('.unit-accordion');
+                units.forEach(unit => {
+                    const uTitle = unit.querySelector('.unit-header')?.textContent.trim();
+                    if (uTitle) summary.push(`\n[UNIDAD]: ${uTitle}`);
+
+                    const weeks = unit.querySelectorAll('.week-card');
+                    weeks.forEach(week => {
+                        const wNum = week.querySelector('h4')?.textContent.trim();
+                        const topic = week.querySelector('.topic-title')?.textContent.trim();
+                        const fileContainer = week.querySelector('.files-container');
+                        
+                        let files = [];
+                        if (fileContainer) {
+                            const links = fileContainer.querySelectorAll('.btn-download-neon');
+                            links.forEach(l => {
+                                const filename = l.getAttribute('title') || l.textContent.trim();
+                                if (filename) files.push(filename.replace(/^📥\s*/, ''));
+                            });
+                        }
+                        const fileInfo = files.length > 0 ? `Archivos subidos: (${files.join(', ')})` : 'Sin archivos subidos aún.';
+                        summary.push(`  - ${wNum}: "${topic}" | ${fileInfo}`);
+                    });
+                });
+            });
+            return summary.join('\n');
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('chatbot-input');
+            const messagesContainer = document.getElementById('chatbot-messages');
+            if (!input || !messagesContainer) return;
+
+            const userText = input.value.trim();
+            if (!userText) return;
+
+            // 1. Agregar mensaje del usuario
+            appendChatMessage('user', userText);
+            input.value = '';
+
+            // 2. Indicador de carga
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'chat-msg bot-msg typing-indicator';
+            typingDiv.id = 'typing-indicator';
+            typingDiv.innerHTML = '⚡ <span>Analizando portafolio...</span>';
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            try {
+                // 3. Extraer contexto del portafolio en tiempo real
+                const portfolioContext = extractPortfolioContext();
+
+                const systemPrompt = `Eres CYBER-BOT, un asistente virtual de Inteligencia Artificial integrado en el Portafolio Académico de Miguel Portocarrero en la Universidad Peruana Los Andes (UPLA).
+Tu objetivo es responder de forma inteligente, clara y precisa sobre todo el contenido del portafolio: los sílabos de los cursos (Algoritmos y Desarrollo de Aplicaciones), los temas de cada semana, los archivos actualmente subidos por el estudiante, y la información institucional.
+
+FORMATO Y ESTILO:
+- Utiliza Markdown sencillo (negritas **, listas, saltos de línea).
+- Sé profesional, servicial y mantén un toque técnico pero accesible.
+- Responde siempre en español.
+
+CONTEXTO COMPLETO Y ACTUALIZADO DEL PORTAFOLIO:
+Estudiante: Miguel Portocarrero
+Universidad: Universidad Peruana Los Andes (UPLA)
+Año: 2026
+
+CONTENIDO Y ESTADO DE ARCHIVOS EN EL PORTAFOLIO:
+${portfolioContext}`;
+
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userText }] }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    }
+                };
+
+                // Reintento con exponential backoff
+                let retries = 0;
+                const maxRetries = 3;
+                let delay = 1000;
+                let botAnswer = null;
+
+                while (retries <= maxRetries) {
+                    try {
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`Error HTTP: ${response.status}`);
+                        }
+
+                        const result = await response.json();
+                        botAnswer = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                        if (botAnswer) break;
+                    } catch (err) {
+                        retries++;
+                        if (retries > maxRetries) throw err;
+                        await new Promise(r => setTimeout(r, delay));
+                        delay *= 2;
+                    }
+                }
+
+                // Remover indicador
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) indicator.remove();
+
+                if (botAnswer) {
+                    appendChatMessage('bot', botAnswer);
+                } else {
+                    appendChatMessage('bot', '🤖 No pude procesar tu consulta en este momento. Inténtalo de nuevo.');
+                }
+
+            } catch (err) {
+                console.error("Error en Chatbot Gemini API:", err);
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) indicator.remove();
+                appendChatMessage('bot', '⚠️ Ocurrió un error al conectar con la Inteligencia Artificial. Revisa tu conexión.');
+            }
+        }
+
+        function appendChatMessage(sender, text) {
+            const container = document.getElementById('chatbot-messages');
+            if (!container) return;
+
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chat-msg ${sender}-msg`;
+            msgDiv.innerHTML = formatMarkdownText(text);
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function formatMarkdownText(text) {
+            if (!text) return '';
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`([^`]+)`/g, '<code style="background:rgba(0,240,255,0.15);padding:2px 4px;border-radius:3px;color:var(--neon-cyan);">$1</code>')
+                .replace(/\n\n/g, '<br><br>')
+                .replace(/\n/g, '<br>');
+        }
+
+        // Eventos DOM
+        document.addEventListener("DOMContentLoaded", function() {
+            initSupabase();
+            loadFilesFromSupabase();
+
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById("loginModal");
+                if (event.target === modal) {
+                    closeLoginModal();
+                }
+            });
+        });
     </script>
 </body>
 </html>
